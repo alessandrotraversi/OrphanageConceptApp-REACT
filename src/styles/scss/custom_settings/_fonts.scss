@@ -1,0 +1,16 @@
+///* ========================================================================
+//   # SETTINGS -> Family fonts
+//   ======================================================================== */
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@600;700;800&display=swap');
+
+%s-font--cormorant-garamond{font-family: 'Nunito', sans-serif;}
+
+/*
+**   DEFAULT RENDER => body
+*/
+
+body{ 
+  @extend %s-font--cormorant-garamond;
+  @extend .u-text--regular;
+  font-size: 18px;
+}

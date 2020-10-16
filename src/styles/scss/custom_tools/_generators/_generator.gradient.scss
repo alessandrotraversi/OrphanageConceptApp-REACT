@@ -1,0 +1,48 @@
+// * ========================================================================
+//   # TOOLS -> Generator - LOGO
+//   ======================================================================== */
+
+/*
+** === USAGE ===
+**
+** @include gradientgenerator-2colors($c1, $c2);
+** $c1, $c2 => must be a color
+**
+**
+** === EXAMPLE USE ===
+**
+** .class{
+**   @include gradientgenerator-2colors(#f1f, #fff);
+**   background: #f1f;
+**   background: -moz-linear-gradient(left, #f1f 0%, #fff 100%);
+**   background: -webkit-linear-gradient(left,#f1f 0%,#fff 100%);
+**   background: linear-gradient(to right, #f1f 0%,#fff 100%);
+**   filter: progid:DXImageTransform.Microsoft.gradient( startColorstr= #f1f, endColorstr= #fff,GradientType=0 );
+** }
+**
+**
+**
+**
+*/
+
+@mixin gradientgenerator-2colors($c1, $c2){
+  background: $c1; /* Old browsers */
+  background: -moz-linear-gradient(left, $c1 0%, $c2 100%); /* FF3.6-15 */
+  background: -webkit-linear-gradient(left,$c1 0%,$c2 100%); /* Chrome10-25,Safari5.1-6 */
+  background: linear-gradient(to right, $c1 0%,$c2 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr= $c1, endColorstr= $c2,GradientType=0 ); /* IE6-9 */
+}
+
+@mixin gradientgenerator-3colors($c1, $c2, $color3){
+  background: $c1; /* Old browsers */
+  background: -moz-linear-gradient(left, $c1 0%, $c2 50%, $color3 100%); /* FF3.6-15 */
+  background: -webkit-linear-gradient(left,$c1 0%, $c2 50%, $color3 100%); /* Chrome10-25,Safari5.1-6 */
+  background: linear-gradient(to right, $c1 0%, $c2 50%, $color3 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr= $c1, endColorstr= $color3,GradientType=0 ); /* IE6-9 */
+}
+
+@mixin gradientgenerator-custom($deg, $val1, $val2){
+  background: -moz-linear-gradient($deg, $val1, $val2);
+  background: -webkit-linear-gradient($deg, $val1, $val2);
+  background: linear-gradient($deg, $val1, $val2);
+}

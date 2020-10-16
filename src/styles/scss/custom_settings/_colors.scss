@@ -1,0 +1,44 @@
+// * ========================================================================
+//   # SETTINGS -> COLORS PALETTE
+//   ======================================================================== */
+
+@import "../custom_tools/_generators/generator.gradient";
+@import "../custom_tools/_shorts/shorts.color.theme";
+
+/* PRIMARY */
+$color-water-1: #17D6EB;
+$color-water-2: #15B6D6;
+$color-water-3: #15D6D6;
+$color-water-4: #12AFCB;
+
+/* SECONDARY */
+$color-blue-lt: #ebf2f5;
+
+/* GRAY */
+$color-gray-lt: #efefef;
+$color-gray-md: #777;
+$color-gray-dk: #222;
+
+/* DEFAULT STATUS */
+$status-error: #f44336;
+$status-error-2: #f21000;
+$status-alert: #ffeb3b;
+$status-alert-2: #FFE100;
+$status-valid: #36E28C;
+$status-valid-2: #00e676;
+$status-hidden: #BABABA;
+$status-hidden-2: #9e9e9e;
+
+/* DEFAULT STATUS GRADIENT */
+%gradient-error{ @include gradientgenerator-2colors($status-error, $status-error-2); }
+%gradient-alert{ @include gradientgenerator-2colors($status-alert, $status-alert-2); }
+%gradient-valid{ @include gradientgenerator-2colors($status-valid, $status-valid-2); }
+%gradient-hidden{ @include gradientgenerator-2colors($status-hidden, $status-hidden-2); }
+
+/*
+**   DEFAULT RENDER => body
+*/
+body{
+  $c1: #fff; $c2: $color-blue-lt;
+  @include theme($c1, $c2);
+}

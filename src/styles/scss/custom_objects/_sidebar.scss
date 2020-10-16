@@ -1,0 +1,69 @@
+// * ========================================================================
+//   # OBJECT -> SIDEBARS
+//   ======================================================================== */
+
+
+/*********************************************************
+********************************************************
+** MAIN SIDEBAR
+********************************************************
+*********************************************************/
+
+// MAIN CONTAINER
+%SIDEBAR-app--layout{
+  position: fixed;
+  height: 100%;
+  padding: 32px 24px;  
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}
+%SIDEBAR-app--skin{
+  $c1: $color-water-2 0%; $c2: $color-water-3 100%; $d: 329.54deg;
+  @include gradientgenerator-custom($d, $c1, $c2)
+}
+%SIDEBAR-app--child{
+  img { width: 48px; }
+}
+
+// MAIN CONTAINER - footer
+%SIDEBAR-app__footer--layout{
+  width: 48px;
+  height: 48px;  
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+%SIDEBAR-app__footer--skin{
+  $c1: $color-water-4; $c2: $color-water-1;
+  border: 0;
+
+  background: $c1;
+  border-radius: 16px;
+
+  cursor: pointer;
+
+  transition: background-color 0.2s;
+
+  &:hover{ background: $c2; }
+}
+
+/*********************************************************
+********************************************************
+** RENDER
+********************************************************
+*********************************************************/
+aside {
+  &.app-sidebar {
+    @include extend-array('SIDEBAR-app--', 'layout', 'skin', 'child');
+
+    footer{
+      a, button {
+        @include extend-array('SIDEBAR-app__footer--', 'layout', 'skin');
+      }
+    }
+  }
+}
