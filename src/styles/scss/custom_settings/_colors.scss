@@ -6,18 +6,25 @@
 @import "../custom_tools/_shorts/shorts.color.theme";
 
 /* PRIMARY */
+
 $color-water-1: #17D6EB;
 $color-water-2: #15B6D6;
 $color-water-3: #15D6D6;
 $color-water-4: #12AFCB;
+$color-water-5: #96feff;
+$color-water-6: #0089a5;
+$color-water-7: #15c3d6;
 
 /* SECONDARY */
 $color-blue-lt: #ebf2f5;
+$color-yellow-1: #ffd666;
 
 /* GRAY */
+$color-white-transparent: rgba(255,255,255,0.8);
 $color-gray-lt: #efefef;
 $color-gray-md: #777;
 $color-gray-dk: #222;
+$color-shadow-blue: rgba(23,142,166,0.16);
 
 /* DEFAULT STATUS */
 $status-error: #f44336;

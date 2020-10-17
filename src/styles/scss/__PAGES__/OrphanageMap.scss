@@ -1,0 +1,84 @@
+// * ========================================================================
+//   # PAGE => landing
+//   ======================================================================== */
+@import '../custom.scss';
+
+
+
+/* Container class */
+%PAGE-ORPAHANAGE-MAP--layout{
+  @extend .o-layout--fullscreen;
+  position: relative;
+  display: flex;
+}
+
+
+
+/* Btn class */
+%P-OM__btn--layout{
+  position: absolute;
+  z-index: 9999;
+  right: 40px;
+  bottom: 40px;   
+}
+
+
+
+/* Map class */
+%P-OM__map--child{
+  .leaflet-popup-content{
+    margin:8px 12px;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    a{
+      $size: 40px;
+      width: $size;
+      height: $size;
+
+      @extend .o-layout__children-align--center-center;
+    }
+  }
+}
+%P-OM__map--child-skin{
+  .leaflet-popup-content-wrapper{
+    background-color: $color-white-transparent;
+    border-radius: 20px;
+    box-shadow: none;
+  }
+  .leaflet-popup-content{
+    @extend .u-text--bold;
+    color: $color-water-6;
+    font-size: 20px;
+
+    a{
+      background: $color-water-7;
+      box-shadow: 17px 27px 41px $color-shadow-blue;
+      border-radius: 12px;
+    }
+  }
+  .leaflet-popup-tip-conteiner{
+    display: none;
+  }
+}
+
+
+
+/*********************************************************
+********************************************************
+** RENDER
+********************************************************
+*********************************************************/
+#page-map {
+  @include extend-array('PAGE-ORPAHANAGE-MAP--', 'layout');
+
+  .create-orphanage{
+    @include extend-array('P-OM__btn--', 'layout');
+  }
+
+  .map-popup{
+    @include extend-array('P-OM__map--', 'child', 'child-skin');
+  }
+}

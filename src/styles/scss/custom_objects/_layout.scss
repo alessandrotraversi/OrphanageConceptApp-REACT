@@ -1,0 +1,28 @@
+// * ========================================================================
+//   # OBJECT -> Layout
+//   ======================================================================== */
+
+
+
+%layout-full-screen{
+  width: 100vw;
+  height: 100vh;
+}
+
+%layout-center-center{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+
+
+
+/*********************************************************
+********************************************************
+** RENDER
+********************************************************
+*********************************************************/
+.o-layout--fullscreen{ @extend %layout-full-screen; }
+
+.o-layout__children-align--center-center{ @extend %layout-center-center; }

@@ -1,0 +1,260 @@
+// * ========================================================================
+//   # PAGE => landing
+//   ======================================================================== */
+@import '../custom.scss';
+
+
+
+/* Container class */
+%PAGE-ORPAHANAGE-CREATE--layout{
+  display: flex;
+}
+%PAGE-ORPAHANAGE-CREATE--child{
+  main {
+    flex: 1;
+  }
+}
+
+
+
+/* Form */
+%P-OC__form--layout{
+  width: 700px;
+  margin: 64px auto;
+
+  padding: 64px 80px;
+}
+%P-OC__form--skin{
+  background: #FFFFFF;
+  border: 1px solid #D3E2E5;
+  border-radius: 20px;
+
+  overflow: hidden;
+}
+%P-OC__form--child{
+  fieldset {
+    border: 0;
+
+    legend {
+      width: 100%;
+
+      font-size: 32px;
+      line-height: 34px;
+      color: #5C8599;
+      font-weight: 700;
+
+      border-bottom: 1px solid #D3E2E5;
+      margin-bottom: 40px;
+      padding-bottom: 24px;
+    }
+  }
+  fieldset + fieldset {
+    margin-top: 80px;
+  }
+}
+
+
+
+/* Leaflet */
+%P-OC__map--layout{
+  margin-bottom: 40px;
+}
+%P-OC__map--skin{
+  border: 1ps solid #d3e2e5;
+  border-radius: 20px;
+}
+
+
+
+/* Input */
+%P-OC__input--layout{
+  + .input-block {
+    margin-top: 24px;
+  }
+}
+%P-OC__input--child{
+  label {
+    display: flex;
+    margin-bottom: 8px;
+
+    span {
+      margin-left: 24px;
+    }
+  }
+  input, textarea {
+    width: 100%;
+  }
+  input {
+    height: 64px;
+    padding: 0 16px;
+  }
+  textarea {
+    min-height: 120px;
+    max-height: 240px;
+    resize: vertical;
+    padding: 16px;
+  }
+}
+%P-OC__input--child-skin{
+  label {
+    color: #8FA7B3;
+    line-height: 24px;
+
+    span {
+      font-size: 14px;
+      color: #8FA7B3;
+      line-height: 24px;
+    }
+  }
+  input, textarea {
+    background: #F5F8FA;
+    border: 1px solid #D3E2E5;
+    border-radius: 20px;
+    outline: none;
+    color: #5C8599;
+  }
+  input[type=file] {
+    display: none;
+  }
+  textarea {
+    line-height: 28px;
+  }
+}
+
+
+
+/* Image container */
+%P-OC__image-container--layout{
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  grid-gap: 16px;
+}
+%P-OC__image-container--child{
+  img{
+    width: 100%;
+    height: 96px;
+    object-fit: cover;
+    border-radius: 20px;
+  }
+}
+
+
+
+/* New image */
+%P-OC__new-image--layout{
+  height: 96px;
+
+  @extend .o-layout__children-align--center-center;
+}
+%P-OC__new-image--skin{
+  background: #F5F8FA;
+  border: 1px dashed #96D2F0;
+  border-radius: 20px;
+  cursor: pointer;
+}
+
+
+
+/* Button select */
+%P-OC__button-select--layout{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+%P-OC__button-select--child{
+  button {
+    height: 64px;
+  }
+}
+%P-OC__button-select--child-skin{
+  button {
+    background: #F5F8FA;
+    border: 1px solid #D3E2E5;
+    color: #5C8599;
+    cursor: pointer;
+    outline: none;
+
+    &.active {
+      background: #EDFFF6;
+      border: 1px solid #A1E9C5;
+      color: #37C77F;
+    }
+
+    &:first-child {
+      border-radius: 20px 0px 0px 20px;
+    }
+
+    &:last-child {
+      border-radius: 0 20px 20px 0;
+      border-left: 0;
+    }
+  }
+}
+
+
+
+
+/* Confirm button */
+%P-OC__button-confirm--layout{
+  margin-top: 64px;
+
+  width: 100%;
+  height: 64px;
+
+  @extend .o-layout__children-align--center-center;
+}
+%P-OC__button-confirm--skin{
+  border: 0;
+  cursor: pointer;
+  background: #3CDC8C;
+  border-radius: 20px;
+  color: #FFFFFF;
+  font-weight: 800;
+
+  transition: background-color 0.2s;
+
+  &:hover {
+    background: #36CF82;
+  }
+}
+%P-OC__button-confirm--child{
+  svg {
+    margin-right: 16px;
+  }
+}
+
+
+/*********************************************************
+********************************************************
+** RENDER
+********************************************************
+*********************************************************/
+#page-create-orphanage{
+  @include extend-array('PAGE-ORPAHANAGE-CREATE--', 'layout', 'child');
+
+  .create-orphanage-form{
+    @include extend-array('P-OC__form--', 'layout', 'skin', 'child');
+
+    .leaflet-container{
+      @include extend-array('P-OC__map--', 'layout', 'skin');
+    }
+
+    .input-block{
+      @include extend-array('P-OC__input--', 'layout', 'child', 'child-skin');
+
+      .images-container{
+        @include extend-array('P-OC__image-container--', 'layout', 'child');
+
+        .new-image {
+          @include extend-array('P-OC__new-image--', 'layout', 'skin');
+        }
+      }
+      .button-select{
+        @include extend-array('P-OC__button-select--', 'layout', 'child', 'child-skin');
+      }
+    }
+
+    .confirm-button{
+      @include extend-array('P-OC__button-confirm--', 'layout', 'skin', 'child');
+    }
+  }
+}

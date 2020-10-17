@@ -1,0 +1,125 @@
+// * ========================================================================
+//   # PAGE => landing
+//   ======================================================================== */
+@import '../custom.scss';
+
+
+
+/* MICRO SHARED style */
+%SHARED-typo{
+  font-size:24px;
+  line-height: 34px;
+}
+
+
+
+/* Main style */
+%PAGE-LANDING--layout{
+  @extend .o-layout--fullscreen;
+  @extend .o-layout__children-align--center-center;
+}
+%PAGE-LANDING--skin{
+  @extend .u-gradient--main;
+}
+
+
+
+/* Container class */
+$size: 100%;
+%P-L__wrapper--layout{
+  position: relative;
+
+  width: $size;
+  height: $size;
+
+  max-width: 1100px;  
+  max-height: 680px;
+
+  display: flex;
+  align-items: flex-start;
+  flex-direction: column;
+  justify-content: space-between;
+}
+%P-L__wrapper--child{
+  main {
+    max-width: 350px;
+
+    h1 {
+      @extend .u-text--extra-bold; // font-weight: 900; Maybe 800?
+      font-size: 76px;      
+      line-height: 70px;
+    }
+
+    p {
+      @extend %SHARED-typo;
+      margin-top: 40px;      
+    }
+  }
+}
+
+
+
+/* Location class */
+%P-L-wrapper__location--layout{
+  position: absolute;
+
+  right: 0;
+  top: 0;
+
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+}
+%P-L-wrapper__location--skin{
+  @extend %SHARED-typo;
+}
+%P-L-wrapper__location--child{
+  strong{ @extend .u-text--extra-bold; }
+}
+
+
+
+/* enter-app class */
+$size: 80px;
+%P-L-wrapper__enter-app--layout{
+  position: absolute;
+
+  right: 0;
+  bottom: 0;
+
+  width: $size;
+  height: $size;
+  
+  border-radius: 30px;
+
+  @extend .o-layout__children-align--center-center; 
+}
+%P-L-wrapper__enter-app--skin{
+  background: $color-yellow-1;
+  transition: background-color 0.2s;
+  
+  &:hover{ background: $color-water-5; }
+}
+
+
+
+
+/*********************************************************
+********************************************************
+** RENDER
+********************************************************
+*********************************************************/
+#page-landing{
+  @include extend-array('PAGE-LANDING--', 'layout', 'skin');
+
+  .content-wrapper{
+    @include extend-array('P-L__wrapper--', 'layout', 'child');
+
+    .location{
+      @include extend-array('P-L-wrapper__location--', 'layout', 'child');      
+    }
+    .enter-app{
+      @include extend-array('P-L-wrapper__enter-app--', 'layout', 'skin');
+    }
+  }
+}

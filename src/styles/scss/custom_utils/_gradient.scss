@@ -1,0 +1,9 @@
+// * ========================================================================
+//   # UTILS -> GRADIENTS
+//   ======================================================================== */
+
+// Main gradient
+.u-gradient--main{
+  $c1: $color-water-2 0%; $c2: $color-water-3 100%; $d: 329.54deg;
+  @include gradientgenerator-custom($d, $c1, $c2)
+}

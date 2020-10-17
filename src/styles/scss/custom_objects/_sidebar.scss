@@ -2,42 +2,87 @@
 //   # OBJECT -> SIDEBARS
 //   ======================================================================== */
 
+%SHARED-main--layout{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+%SHARED-main--skin{
+  @extend .u-gradient--main;
+}
+
 
 /*********************************************************
 ********************************************************
-** MAIN SIDEBAR
+** BIGGER SIDEBAR
 ********************************************************
 *********************************************************/
 
 // MAIN CONTAINER
-%SIDEBAR-app--layout{
+%SIDEBAR-bigger--layout{
+  width:440px; 
+  padding: 80px;
+
+  @extend %SHARED-main--layout;
+}
+%SIDEBAR-bigger--skin{
+  @extend %SHARED-main--skin;
+}
+%SIDEBAR-bigger--child{
+  h2{
+    @extend .u-text--extra-bold;
+    font-size: 40px;
+    line-height: 42px;
+    margin-top: 6px;
+  }
+
+  p{
+    line-height: 28px;
+    margin-top: 24px;
+  }
+}
+
+// MAIN CONTAINER - footer
+%SIDEBAR-bigger__footer--layout{
+  display: flex;
+  flex-direction: column;
+
+  line-height: 24px;
+}
+%SIDEBAR-bigger__footer--child{
+  strong{ @extend .u-text--extra-bold; }
+}
+
+/*********************************************************
+********************************************************
+** SMALLER SIDEBAR
+********************************************************
+*********************************************************/
+
+// MAIN CONTAINER
+%SIDEBAR-smaller--layout{
   position: fixed;
   height: 100%;
   padding: 32px 24px;  
 
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
+  @extend %SHARED-main--layout;
   align-items: center;
 }
-%SIDEBAR-app--skin{
-  $c1: $color-water-2 0%; $c2: $color-water-3 100%; $d: 329.54deg;
-  @include gradientgenerator-custom($d, $c1, $c2)
+%SIDEBAR-smaller--skin{
+  @extend %SHARED-main--skin;
 }
-%SIDEBAR-app--child{
+%SIDEBAR-smaller--child{
   img { width: 48px; }
 }
 
 // MAIN CONTAINER - footer
-%SIDEBAR-app__footer--layout{
+%SIDEBAR-smaller__footer--layout{
   width: 48px;
   height: 48px;  
 
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  @extend .o-layout__children-align--center-center;
 }
-%SIDEBAR-app__footer--skin{
+%SIDEBAR-smaller__footer--skin{
   $c1: $color-water-4; $c2: $color-water-1;
   border: 0;
 
@@ -57,12 +102,20 @@
 ********************************************************
 *********************************************************/
 aside {
+  &.bigger {
+    @include extend-array('SIDEBAR-bigger--', 'layout', 'skin', 'child');
+
+    footer{
+      @include extend-array('SIDEBAR-bigger__footer--', 'layout', 'child');
+    }
+  }
+
   &.app-sidebar {
-    @include extend-array('SIDEBAR-app--', 'layout', 'skin', 'child');
+    @include extend-array('SIDEBAR-smaller--', 'layout', 'skin', 'child');
 
     footer{
       a, button {
-        @include extend-array('SIDEBAR-app__footer--', 'layout', 'skin');
+        @include extend-array('SIDEBAR-smaller__footer--', 'layout', 'skin');
       }
     }
   }

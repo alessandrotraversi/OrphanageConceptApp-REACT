@@ -5,7 +5,8 @@ import { Map, TileLayer, Marker, Popup } from 'react-leaflet'
 import { FiArrowRight, FiPlus } from 'react-icons/fi'
 import mapMarkerImg from '../images/map-marker.svg'
 
-import '../styles/pages/orphanage-map.css'
+import '../styles/scss/__PAGES__/OrphanageMap.scss'
+import Sidebar from "../components/Sidebar";
 import mapIcon from '../utils/mapIcons'
 import api from '../services/api'
 
@@ -27,19 +28,21 @@ function OrphanagesMap() {
 
   return (
     <div id="page-map">
-      <aside>
-        <header>
-          <img src={mapMarkerImg} alt="Happy" />
-
-          <h2>Escolha um orfanato no mapa</h2>
-          <p>Muitas crianças estao esperando a sua visitas :)</p>
-        </header>
-
-        <footer>
-          <strong>Rio do Sul</strong>
-          <span>Santa Catarina</span>
-        </footer>
-      </aside>
+      <Sidebar 
+        sizeClass="bigger"
+        header={
+          <span>
+            <h2>Escolha um orfanato no mapa</h2>
+            <p>Muitas crianças estao esperando a sua visitas :)</p>
+          </span>          
+        }
+        footer={
+          <span>
+            <strong>Rio do Sul</strong>
+            <div>Santa Catarina</div>
+          </span> 
+        }
+      />
 
       <Map
         center={[-27.2092052,-49.6401092]}
@@ -68,7 +71,7 @@ function OrphanagesMap() {
         
       </Map>
 
-      <Link to="/orphanages/create" className="create-orphanage">
+      <Link to="/orphanages/create" className="create-orphanage o-btn--blue-lt">
         <FiPlus size={32} color="#fff" />
       </Link>
     </div>

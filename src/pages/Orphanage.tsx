@@ -4,7 +4,8 @@ import { FaWhatsapp } from "react-icons/fa";
 import { FiClock, FiInfo } from "react-icons/fi";
 import { Map, Marker, TileLayer } from "react-leaflet";
 
-import '../styles/pages/orphanage.css';
+import '../styles/scss/__PAGES__/Orphanage.scss'
+
 import Sidebar from "../components/Sidebar";
 import mapIcon from "../utils/mapIcons";
 import api from "../services/api";
@@ -44,7 +45,7 @@ export default function Orphanage() {
 
   return (
     <div id="page-orphanage">
-      <Sidebar />
+      <Sidebar sizeClass="smaller"/>
 
       <main>
         <div className="orphanage-details">
@@ -55,7 +56,7 @@ export default function Orphanage() {
               return (
                 <button
                   key={image.id}
-                  className={ activeImageIndex === index ? 'active' : '' }
+                  className={ activeImageIndex === index ? 'active image-button' : 'image-button' }
                   type="button"
                   onClick={ () => {
                     setActiveImageIndex(index)
