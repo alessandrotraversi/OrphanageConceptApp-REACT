@@ -21,7 +21,9 @@ Routes component
 </p>
 <h2>Extentions own features</h2>
 <p>
-  SASS framework, unit test with Jest
+  SASS framework
+  <br />
+  unit test with Jest
 </p>
 <br /><br />
 
