@@ -21,7 +21,7 @@ Routes component
 </p>
 <h2>Extentions own features</h2>
 <p>
-  SASS framework
+  SASS framework (SEE MORE => https://github.com/LeonardoDalessandro/OrphanageConceptApp-REACT/wiki/SASS-framework )
   <br />
   unit test with Jest
 </p>
