@@ -1,15 +1,17 @@
 import React from 'react'
 import { FiArrowLeft } from 'react-icons/fi'
 import { useHistory } from 'react-router-dom';
-import mapMarkerImg from '../images/map-marker.svg';
+import mapMarkerImg from '../../images/map-marker.svg';
 
 
 export default function Sidebar (props: any) {
-  const { goBack } = useHistory()
+  const history = useHistory()
+  //const { goBack } = useHistory()
+  function goBack () { history.goBack() }
 
   return (
-    //TODO: props.children customized for each page
     <aside
+      aria-label="main-sidebar"
       className={
         props.sizeClass == 'bigger' ? 'bigger' : 'smaller app-sidebar'
       }
@@ -23,7 +25,7 @@ export default function Sidebar (props: any) {
         {props.sizeClass == 'bigger' ? (
             <span>{props.footer}</span>
           ) : (
-            <button type="button" onClick={goBack}>
+            <button type="button" onClick={goBack} aria-label="main-sidebar-btn">
               <FiArrowLeft size={24} color="#FFF" />
             </button>
           )}

@@ -6,7 +6,7 @@ import { FiArrowRight, FiPlus } from 'react-icons/fi'
 import mapMarkerImg from '../images/map-marker.svg'
 
 import '../styles/scss/__PAGES__/OrphanageMap.scss'
-import Sidebar from "../components/Sidebar";
+import Sidebar from "../components/sidebar/Sidebar";
 import mapIcon from '../utils/mapIcons'
 import api from '../services/api'
 

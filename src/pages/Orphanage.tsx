@@ -6,7 +6,7 @@ import { Map, Marker, TileLayer } from "react-leaflet";
 
 import '../styles/scss/__PAGES__/Orphanage.scss'
 
-import Sidebar from "../components/Sidebar";
+import Sidebar from "../components/sidebar/Sidebar";
 import mapIcon from "../utils/mapIcons";
 import api from "../services/api";
 
